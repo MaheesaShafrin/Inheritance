@@ -1,42 +1,80 @@
 # Inheritance
-public class Main {
-  // method to add two integers
-  public int addition(int x, int y) {
-    return x + y;
-  }
-
-
-  // method to add three integers
-  public int addition(int x, int y, int z) {
-    return x + y + z;
-  }
-
-
-  // method to add two doubles
-  public double addition(double x, double y) {
-    return x + y;
-  }
-
-
- 
-  public static void main(String[] args) {
-    // Creating an object of the Main method
-    Main number = new Main();
-
-
-    // calling the overloaded methods
-    int res1 = number.addition(444, 555);
-    System.out.println("Addition of two integers: " + res1);
-
-
-    int res2 = number.addition(333, 444, 555);
-    System.out.println("Addition of three integers: " + res2);
-
-
-    double res3 = number.addition(10.15, 20.22);
-    System.out.println("Addition of two doubles: " + res3);
-  }
+package shapeinheritanceexample;
+abstract class Shape{
+    public abstract double calculateArea();
+    
 }
+
+class Circle extends Shape{
+    private double radius;
+    public Circle(double radius){
+        this.radius=radius;
+        
+    }
+    public double calculateArea() {
+        return Math.PI*radius*radius;
+    }
+    
+}
+class Rectangle extends Shape {
+    private double length,width;
+    public Rectangle(double length,double width){
+        this.length=length;
+        this.width=width;
+    }
+ public double calculateArea(){
+     return length*width;
+ }
+    
+}
+class Square extends Shape {
+    private double side;
+    public Square(double side){
+        this.side=side;
+    }
+    public double calculateArea(){
+        return side*side;
+        
+    }
+}
+class Triangle extends Shape{
+    private double base,height;
+    public Triangle(double base,double height){
+        this.base=base;
+        this.height=height;
+        
+    }
+    public double calculateArea(){
+        return 0.5*base*height;
+    }
+}
+/**
+ *
+ * @author 1BSCCSA53
+ */
+public class Shapeinheritanceexample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Shape circle=new Circle(5);
+        Shape rectangle=new Rectangle(4,6);
+        Shape square=new Square(4);
+        Shape triangle=new Triangle(3,5);
+        
+        System.out.println("Circle Area:" +circle.calculateArea());
+        System.out.println("Rectangle Area:" +rectangle.calculateArea());
+        System.out.println("Square Area:" +square.calculateArea());
+        System.out.println("Triangle Area:" +triangle.calculateArea());
+// TODO code application logic here
+    }
+    
+}
+
+
+
+
 OUTPUT:
 
 
